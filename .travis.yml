@@ -13,4 +13,8 @@ after_sucess:
   - docker build -t cr9ver/multi-nginx ./nginx
   - docker build -t cr9ver/multi-server ./server
   - docker build -t cr9ver/multi-worker ./worker
-
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker push cr9ver/multi-client
+  - docker push cr9ver/multi-nginx
+  - docker push cr9ver/multi-server
+  - docker push cr9ver/multi-worker
