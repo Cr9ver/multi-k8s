@@ -18,3 +18,15 @@ after_sucess:
   - docker push cr9ver/multi-nginx
   - docker push cr9ver/multi-server
   - docker push cr9ver/multi-worker
+
+deploy:
+  provider: elasticbeanstalk
+  region: "eu-west-2"
+  app: "multi-docker"
+  env: "Docker-multi-env"
+  bucket_name: "elasticbeanstalk-eu-west-2-685794242424"
+  bucket_path: "multi-docker"
+  on:
+    branch: main
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: "$AWS_SECRET_KEY"
