@@ -1,6 +1,9 @@
 sudo: required
 services:
   - docker
+language: python
+python:
+  - "3.8"
 env:
   global:
     - SHA=$(git rev-parse HEAD)
@@ -16,7 +19,7 @@ before_install:
   - gcloud config set project multi-k8s-406021
   - gcloud config set compute/zone us-central1-a
   - gcloud container clusters get-credentials multi-cluster
-  - echo "$DCOKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker build -t cr9ver/react-test -f ./client/Dockerfile.dev
 
 script:
