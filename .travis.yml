@@ -13,8 +13,8 @@ before_install:
   - curl https://sdk.cloud.google.com | bash > /dev/null;
   # - curl https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz | tar zx
   # - ./google-cloud-sdk/install.sh --quiet
-  # - source $HOME/google-cloud-sdk/path.bash.inc
-  - source ./google-cloud-sdk/path.bash.inc
+  - source $HOME/google-cloud-sdk/path.bash.inc
+  # - source ./google-cloud-sdk/path.bash.inc
   - gcloud components update kubectl 
   - gcloud auth activate-service-account --key-file service-account.json
   - gcloud config set project multi-k8s-406021
